@@ -1,4 +1,4 @@
-import { generateReport } from './generate-report'
+import { generateReport } from '../generate-report'
 
 describe('generateReport function', () => {
   it('should generate report with correct data', () => {

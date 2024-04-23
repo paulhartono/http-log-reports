@@ -1,4 +1,4 @@
-import { parseHttpLog, ParsedLog } from './parse-http-log'
+import { parseHttpLog, ParsedLog } from '../parse-http-log'
 
 describe('parseHttpLog function', () => {
   it('should parse a valid log line correctly', () => {

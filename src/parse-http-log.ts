@@ -8,14 +8,20 @@ export interface ParsedLog {
   }
 }
 
+// Function to parse a single log line as http log.
+// This function returns the ParsedLog interface above
+// as noted we actually do not need the user field
 export function parseHttpLog(logLine: string): ParsedLog | null {
-  const regexPattern = /^(\S+) (\S+) (\S+) \[([\w:/]+\s[+\-]\d{4})\] "(\S+)\s?(\S+)?\s?(\S+)?" (\d{3}) (\d+|\S+)/
+  // define the regex pattern to describe a http log. This may need to be changed to support future requirements
+  const regexPattern = /^(\S+) (\S+) (\S+) \[([\w:/]+\s[+-]\d{4})\] "(\S+)\s?(\S+)?\s?(\S+)?" (\d{3}) (\d+|\S+)/
   const match = logLine.match(regexPattern)
 
   if (match) {
     // Note: some of these variables are not used and will fail on strict linting
     // (eg: logname, timestamp, status, bytes, url)
     // I put it below just for demonstration purpose
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [, ip, logname, user, timestamp, method, path, protocol, statusStr, bytesStr] = match
 
     const username = user !== '-' ? user : null

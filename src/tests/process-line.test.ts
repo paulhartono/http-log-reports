@@ -1,5 +1,5 @@
-import { processLine, ReportData } from './process-line'
-import { parseHttpLog } from './parse-http-log'
+import { processLine, ReportData } from '../process-line'
+import { parseHttpLog } from '../parse-http-log'
 
 describe('processLine function', () => {
   it('should update URL and IP counts correctly for a valid log line', () => {
